@@ -1,5 +1,4 @@
-#jcdl
-## Description
+# jcdl
 Client-side JSON to CSV file downloads made easy.
 
 Pass in a JavaScript object, get back a data-uri link to instantly download data as a CSV file.
@@ -19,11 +18,10 @@ Coming soon
 // Array of objects
 var json = [...]
 
-
 var $downloadLink = $.jcdl.getDownloadLink(json);
 
 $('#main').append($downloadLink);
 ```
 
 ## License
-MIT (c) 2016 Joel Colucci
+MIT License Copyright (c) 2016 Joel Colucci
