@@ -27,18 +27,29 @@
          */
     
         getDownloadLink: function(json) {
+            if (json == null) {
+                throw new TypeError("Argument 'json' must be defined");
+            }
+
             // Transform to CSV
+            var csvStr = $.jcdl._transformToCsv(json);
 
             // Encode string
+            var encodedCsvStr = $.jcdl._encodeString(csvStr);
 
             // Build data:uri href
+            var dataUri = $.jcdl._createDataUriHref(encodedCsvStr);
 
             // Create jQuery anchor
+            var $downloadLink = $('<a></a>');
 
             // Set href attribute
+            $downloadLink.attr('href', dataUri);
 
             // Set download attribute
-            return $('<a></a>');
+            $downloadLink.attr('download', true);
+
+            return $downloadLink;
         },
 
 
@@ -82,7 +93,7 @@
                 'charset=utf-8,',
                 str  
             ].join('');
-        },      
+        }, 
 
     };
 
