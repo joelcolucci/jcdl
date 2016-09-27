@@ -2,21 +2,49 @@ describe('jcdl', function() {
 
 
     describe('getDownloadLink', function() {
+        var jsonData;
 
-        it('return a jQuery DOM object', function() {
-            var downloadLink = $.jcdl.getDownloadLink();
+        beforeEach(function() {
+            jsonData = [
+                {
+                    "title": "Creativity Inc",
+                    "author": "Ed Catmull"
+                },
+                {
+                    "title": "Ego is the Enemy",
+                    "author": "Ryan Holiday"
+                }
+            ];
+        });
 
-            var isJqueryObject = downloadLink instanceof jQuery;
+        it('should throw TypeError if no argument defined', function() {
+            expect(function() {
+                $.jcdl.getDownloadLink();
+            }).toThrow();
+        });
+
+        it('should return a jQuery DOM object', function() {
+            var $downloadLink = $.jcdl.getDownloadLink(jsonData);
+
+            var isJqueryObject = $downloadLink instanceof jQuery;
 
             expect(isJqueryObject).toBe(true);
         });
 
         it('should have a download attribute', function() {
+            var $downloadLink = $.jcdl.getDownloadLink(jsonData);
 
+            var downloadAttr = $downloadLink.attr('download');
+
+            expect(downloadAttr).toBeTruthy();
         });
 
         it('should have data uri href', function() {
+            var $downloadLink = $.jcdl.getDownloadLink(jsonData);
 
+            var href = $downloadLink.attr('href');
+
+            expect(href).toBeTruthy();
         });
 
     });
@@ -24,6 +52,11 @@ describe('jcdl', function() {
 
     describe('_transformToCsv', function() {
         // Wrapper around jQuery-csv call fromObjects method
+
+        it('flattens nested JSON', function() {
+
+        });
+        
     });
 
 
