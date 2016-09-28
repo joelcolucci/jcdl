@@ -46,8 +46,8 @@
             // Set href attribute
             $downloadLink.attr('href', dataUri);
 
-            // Set download attribute
-            $downloadLink.attr('download', true);
+            // Set download attribute which sets name of file
+            $downloadLink.attr('download', 'download');
 
             return $downloadLink;
         },
