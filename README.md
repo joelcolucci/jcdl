@@ -19,7 +19,7 @@ Coming soon...
 Install with bower..
 ```
 bower install --save jcdl
-``
+```
 
 ## Getting started
 ```javascript
