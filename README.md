@@ -11,7 +11,15 @@ Note, this module is included in the distribution.
 API inspiration comes from https://github.com/konklone/json
 
 ## Installation
-Coming soon
+Install with NPM..
+```
+Coming soon...
+```
+
+Install with bower..
+```
+bower install --save jcdl
+``
 
 ## Getting started
 ```javascript
