@@ -997,17 +997,17 @@ RegExp.escape= function(s) {
         /**
          * 
          * createDownloadLink
-         * @param {string} json
+         * @param {array} data
          * 
          */
     
-        getDownloadLink: function(json) {
-            if (json == null) {
-                throw new TypeError("Argument 'json' must be defined");
+        getDownloadLink: function(data) {
+            if (data == null) {
+                throw new TypeError("Argument 'data' must be defined");
             }
 
             // Transform to CSV
-            var csvStr = $.jcdl._transformToCsv(json);
+            var csvStr = $.jcdl._transformToCsv(data);
 
             // Encode string
             var encodedCsvStr = $.jcdl._encodeString(csvStr);
@@ -1031,12 +1031,14 @@ RegExp.escape= function(s) {
         /**
          * 
          * _transformToCsv
-         * @param {string} json
+         * @param {array} data
          * 
          */
 
-        _transformToCsv: function(json) {
-            return $.csv.fromObjects(json);
+        _transformToCsv: function(data) {
+            var flattenedData = flattenMany(data);
+
+            return $.csv.fromObjects(flattenedData);
         },
 
 
