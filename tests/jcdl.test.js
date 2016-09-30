@@ -8,13 +8,21 @@ describe('jcdl', function() {
             jsonData = [
                 {
                     "title": "Creativity Inc",
-                    "author": "Ed Catmull"
+                    "author": "Ed Catmull",
+                    "meta": {
+                        "keywords": "business,leadership",
+                        "genre": "businees"
+                    }
                 },
                 {
                     "title": "Ego is the Enemy",
-                    "author": "Ryan Holiday"
+                    "author": "Ryan Holiday",
+                    "meta": {
+                        "keywords": "philosophy",
+                        "genre": "philosophy"
+                    }
                 }
-            ];
+            ]; 
         });
 
         it('should throw TypeError if no argument defined', function() {
