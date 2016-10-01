@@ -13,7 +13,7 @@ API inspiration comes from https://github.com/konklone/json
 ## Installation
 Install with NPM..
 ```
-Coming soon...
+npm install --save jcdl
 ```
 
 Install with bower..
