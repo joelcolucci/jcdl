@@ -1,12 +1,17 @@
 {
   "name": "jcdl",
-  "version": "0.1.0",
-  "description": "",
-  "main": "src/jcdl.js",
-  "directories": {
-    "test": "tests"
+  "version": "0.2.0",
+  "description": "Client-side JSON to CSV file downloads made easy.",
+  "main": "./dist/jcdl.js",
+  "keywords": [
+    "JSON",
+    "CSV",
+    "download",
+    "data uri"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
   },
-  "dependencies": {},
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
@@ -22,7 +27,10 @@
     "type": "git",
     "url": "git+https://github.com/joelcolucci/jcdl.git"
   },
-  "author": "Joel Colucci",
+  "author": {
+    "name" : "Joel Colucci",
+    "url" : "http://joelcolucci.com"
+},
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/joelcolucci/jcdl/issues"
