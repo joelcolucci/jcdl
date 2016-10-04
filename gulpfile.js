@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-
+var path = require('path');
 var concat = require('gulp-concat');
 
 var Server = require('karma').Server;
@@ -11,7 +11,7 @@ var Server = require('karma').Server;
 
 gulp.task('test:run', function (done) {
   new Server({
-    configFile: __dirname + '/karma.conf.js',
+    configFile: path.join(__dirname, '/karma.conf.js'),
     singleRun: true
   }, done).start();
 });
@@ -23,7 +23,7 @@ gulp.task('test:run', function (done) {
 
 gulp.task('test:watch', function (done) {
   new Server({
-    configFile: __dirname + '/karma.conf.js'
+    configFile: path.join(__dirname, '/karma.conf.js')
   }, done).start();
 });
 
@@ -37,6 +37,3 @@ gulp.task('dist:build', function() {
     .pipe(gulp.dest('./dist'));
 
 });
-
-
-// TODO: Test dist https://karma-runner.github.io/1.0/dev/public-api.html
