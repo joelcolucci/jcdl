@@ -61,7 +61,7 @@
          */
 
         _transformToCsv: function(data) {
-            var flattenedData = flattenMany(data);
+            var flattenedData = flatten2.flattenMany(data);
 
             return $.csv.fromObjects(flattenedData);
         },
