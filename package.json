@@ -1,6 +1,6 @@
 {
   "name": "jcdl",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Client-side JSON to CSV file downloads made easy.",
   "main": "./dist/jcdl.js",
   "keywords": [
