@@ -18,6 +18,8 @@
     "csv-jquery": "git://github.com/evanplaice/jquery-csv.git#9e81c8d"
   },
   "devDependencies": {
+    "eslint": "^3.7.1",
+    "eslint-config-google": "^0.6.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "jasmine": "^2.5.2",
