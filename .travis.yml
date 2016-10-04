@@ -1,35 +1,21 @@
 language: node_js
 node_js:
-  - "4.1"
-
-# Install Chrome for Karma tests
+- '4.1'
 sudo: required
 dist: trusty
 addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
-
-# https://docs.travis-ci.com/user/gui-and-headless-browsers/#Using-xvfb-to-Run-Tests-That-Require-a-GUI
-before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
-  - npm install -g codeclimate-test-reporter
-
-install:
-  # Install dependencies to build and run code
-  - "npm install"
-
-# https://docs.travis-ci.com/user/code-climate/
-# https://github.com/codeclimate/javascript-test-reporter
-after_script:
-  - codeclimate-test-reporter < ./report-lcov/lcov.info
-
-addons:
   code_climate:
     repo_token:
-       secure: "efIPU7y7vCBgV4vVitOrRjeeWXe5fY0RmNiCi+gk+Ho+MCYosHVmYH7UuIXGyo1CmW5c+2fxVHxmtWg9Se8mRAPSaUjXJjZ8mFOx1ClUXpDc6MwKkIlQv/vhT/uAKezQfD1UhQwdPBHIl16Dpi5vAaiXx3F9j80x7KQYs2M9BQluwOrTChZOB6xRS2oHZ7CcqZGuqDtAcCzVKMFxM/q5zzIj6zSnw/axhrKv23QoXxexwMYtuTVocMCs1r6VcyH168okewxkL6+E8unXnNBjkgctfMrEPhgzxmeXAhyXGhPf98aPpKDu7MLwnzM/HkPtRgNVfe+hGbn76a3Loq085QTskt8xJ2SXZ2cDH92mxY4j8Ow47uvjU/Xlshzm/EzOiBUgz+sXgRfbz0+Dw+LUZTPDwqHRmJMQzjGYaUbEvryknA7B+wIhqsj7hm8Y6u8Qv71ygF0kRkmAvbl4mHpQIgyKkQsu061L5Nk40/skGsDDloW8GWAuwX5mCEYAyAtEKCDwDV1C3ZeRP2Jwn3odW+I1BheMNkj2MlAujKqwelVZYn2c5w37Kntq0m/Gy5V2sojh3wy7i1DPx3xn2szwZvRF26jSS3OtrqFr1DMU2GG73VsKedjEvJHM5vjtWKo2trgaRIm42iZeiCFL1vbePds6Tc="                                                                            
-                                                                        
+      secure: efIPU7y7vCBgV4vVitOrRjeeWXe5fY0RmNiCi+gk+Ho+MCYosHVmYH7UuIXGyo1CmW5c+2fxVHxmtWg9Se8mRAPSaUjXJjZ8mFOx1ClUXpDc6MwKkIlQv/vhT/uAKezQfD1UhQwdPBHIl16Dpi5vAaiXx3F9j80x7KQYs2M9BQluwOrTChZOB6xRS2oHZ7CcqZGuqDtAcCzVKMFxM/q5zzIj6zSnw/axhrKv23QoXxexwMYtuTVocMCs1r6VcyH168okewxkL6+E8unXnNBjkgctfMrEPhgzxmeXAhyXGhPf98aPpKDu7MLwnzM/HkPtRgNVfe+hGbn76a3Loq085QTskt8xJ2SXZ2cDH92mxY4j8Ow47uvjU/Xlshzm/EzOiBUgz+sXgRfbz0+Dw+LUZTPDwqHRmJMQzjGYaUbEvryknA7B+wIhqsj7hm8Y6u8Qv71ygF0kRkmAvbl4mHpQIgyKkQsu061L5Nk40/skGsDDloW8GWAuwX5mCEYAyAtEKCDwDV1C3ZeRP2Jwn3odW+I1BheMNkj2MlAujKqwelVZYn2c5w37Kntq0m/Gy5V2sojh3wy7i1DPx3xn2szwZvRF26jSS3OtrqFr1DMU2GG73VsKedjEvJHM5vjtWKo2trgaRIm42iZeiCFL1vbePds6Tc=
+before_script:
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- sleep 3
+- npm install -g codeclimate-test-reporter
+install:
+- npm install
+after_script:
+- codeclimate-test-reporter < ./report-lcov/lcov.info
+env:
+  global:
+    secure: PZ1CoQ49m9TdD78CKItVJ55JdbIT0xoOKjqvAe0j4CV74SHVz8OpLNZd6/f9w185bo2sb7nJEJ7fC9x5gCNgqRpgpzrxsHhoKFFS+suyICZedBM5ld/z6Az5uMY2sW1x3eYPm322siih1F2mu6e9I0OB96EXoP+UlqBNe8HIf6tr6uQCEp0ZDKWD72/Z09NGzhFLmDnPG7N/hNGBbqEA8rkOAOCkDKoYkeM6f5eoB+ZsECRJWCEIXp9FGluS2gQKYF683hIqEAkVfOBWMPrxKoQ4TRis22vjV+KsThOYqKRT+XjolKiqfaccxQa+Z5BSOs1ID6StEJq2fyTaF1nCFS+DlSyZ+f8C+GyFSWkcNpJD/N8qrtQCQQIDMLQBkkau0+xxKf3Juwdr2QQIrmlT0noIxyQgKjGUyL6t3pZXoxePWI36zfJ8E9eLeclX8lW007Nlciewkx1TuqvzTiAf2RiCanKSeuVsecRPPklVxDCEYARgHt5FUPvXGHvhtm1TqdG0t3iOlRbkzn+9sekbpWVG6hqJj6pnIkzRXjJ0ennLZIAy6VcWk99MfvPtPJwJVUPyZ5U7sHjTUd98tLXDn1GpITqqOuVZCowNo+KEOl7tl+Lu/c7e+vwIGklW3VaHKZ36/cM6roPdDD8koMCr28d4vzYck9c5mTtq2p/mLwE=
