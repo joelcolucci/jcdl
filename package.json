@@ -28,9 +28,9 @@
     "url": "git+https://github.com/joelcolucci/jcdl.git"
   },
   "author": {
-    "name" : "Joel Colucci",
-    "url" : "http://joelcolucci.com"
-},
+    "name": "Joel Colucci",
+    "url": "http://joelcolucci.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/joelcolucci/jcdl/issues"
