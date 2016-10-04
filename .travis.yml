@@ -27,3 +27,9 @@ install:
 # https://github.com/codeclimate/javascript-test-reporter
 after_script:
   - codeclimate-test-reporter < ./report-lcov/lcov.info
+
+addons:
+  code_climate:
+    repo_token:
+      secure: "efIPU7y7vCBgV4vVitOrRjeeWXe5fY0RmNiCi+gk+Ho+MCYosHVmYH7UuIXGyo1CmW5c+2fxVHxmtWg9Se8mRAPSaUjXJjZ8mFOx1ClUXpDc6MwKkIlQv/vhT/uAKezQfD1UhQwdPBHIl16Dpi5vAaiXx3F9j80x7KQYs2M9BQluwOrTChZOB6xRS2oHZ7CcqZGuqDtAcCzVKMFxM/q5zzIj6zSnw/axhrKv23QoXxexwMYtuTVocMCs1r6VcyH168okewxkL6+E8unXnNBjkgctfMrEPhgzxmeXAhyXGhPf98aPpKDu7MLwnzM/HkPtRgNVfe+hGbn76a3Loq085QTskt8xJ2SXZ2cDH92mxY4j8Ow47uvjU/Xlshzm/EzOiBUgz+sXgRfbz0+Dw+LUZTPDwqHRmJMQzjGYaUbEvryknA7B+wIhqsj7hm8Y6u8Qv71ygF0kRkmAvbl4mHpQIgyKkQsu061L5Nk40/skGsDDloW8GWAuwX5mCEYAyAtEKCDwDV1C3ZeRP2Jwn3odW+I1BheMNkj2MlAujKqwelVZYn2c5w37Kntq0m/Gy5V2sojh3wy7i1DPx3xn2szwZvRF26jSS3OtrqFr1DMU2GG73VsKedjEvJHM5vjtWKo2trgaRIm42iZeiCFL1vbePds6Tc="                                                                            
+                                                                                                                      Ï
