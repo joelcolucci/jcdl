@@ -31,7 +31,7 @@
 
             var dataUri = $.jcdl._createDataUriHref(encodedCsvStr);
 
-            var $downloadLink = $('<a></a>');
+            var $downloadLink = $('<a>Download</a>');
             $downloadLink.attr('href', dataUri);
             $downloadLink.attr('download', 'download');
 
