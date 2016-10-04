@@ -15,7 +15,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'node_modules/jquery/dist/jquery.js',
+      'node_modules/jquery/dist/jquery.min.js',
+      'node_modules/jquery-csv/src/jquery.csv.min.js',
       'node_modules/flatten2/dist/flatten2.js',
       'src/vendor/**/*.js',
       'src/*.js',
