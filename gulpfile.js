@@ -33,8 +33,7 @@ gulp.task('test:watch', function (done) {
  */
 gulp.task('dist:build', function() {
 
-  return gulp.src(['./src/vendor/jquery.csv.js', './src/jcdl.js'])
-    .pipe(concat('jcdl.js'))
+  return gulp.src(['./src/jcdl.js'])
     .pipe(gulp.dest('./dist'));
 
 });
