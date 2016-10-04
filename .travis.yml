@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+  - "4.1"
+
+# Install Chrome for Karma tests
+sudo: required
+dist: trusty
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
+# https://docs.travis-ci.com/user/gui-and-headless-browsers/#Using-xvfb-to-Run-Tests-That-Require-a-GUI
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+  - npm install -g codeclimate-test-reporter
+
+install:
+  # Install dependencies to build and run code
+  - "npm install"
+
+# https://docs.travis-ci.com/user/code-climate/
+# https://github.com/codeclimate/javascript-test-reporter
+after_script:
+  - codeclimate-test-reporter < ./report-lcov/lcov.info
