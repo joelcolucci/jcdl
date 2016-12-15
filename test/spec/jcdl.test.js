@@ -28,7 +28,7 @@ describe('jcdl', function() {
         it('should throw TypeError if no argument defined', function() {
             expect(function() {
                 $.jcdl.getDownloadLink();
-            }).toThrow();
+            }).to.throw();
         });
 
         it('should return a jQuery DOM object', function() {
@@ -36,7 +36,7 @@ describe('jcdl', function() {
 
             var isJqueryObject = $downloadLink instanceof jQuery;
 
-            expect(isJqueryObject).toBe(true);
+            expect(isJqueryObject).to.be.true;
         });
 
         it('should have a download attribute', function() {
@@ -44,7 +44,7 @@ describe('jcdl', function() {
 
             var downloadAttr = $downloadLink.attr('download');
 
-            expect(downloadAttr).toBeTruthy();
+            expect(downloadAttr).to.be.ok;
         });
 
         it('should have data uri href', function() {
@@ -52,7 +52,7 @@ describe('jcdl', function() {
 
             var href = $downloadLink.attr('href');
 
-            expect(href).toBeTruthy();
+            expect(href).to.be.ok;
         });
 
     });
@@ -85,19 +85,19 @@ describe('jcdl', function() {
 
         it('should contain correct media type', function() {
             var containsMediaType = dataUriString.indexOf('text/csv') > 0 ? true : false;
-            expect(containsMediaType).toBe(true);
+            expect(containsMediaType).to.be.true;
         });
 
         it('should contain correct charset', function() {
             var containsCharset = dataUriString.indexOf('charset=utf-8') > 0 ? true : false;
 
-            expect(containsCharset).toBe(true);
+            expect(containsCharset).to.be.true;
         });
 
         it('should contain str data', function() {
             var containsStringData = dataUriString.indexOf(csvString) > 0 ? true : false;
 
-            expect(containsStringData).toBe(true);
+            expect(containsStringData).to.be.true;
         })
 
     });
