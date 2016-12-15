@@ -15,11 +15,6 @@ Install with NPM..
 npm install --save jcdl
 ```
 
-Install with bower..
-```
-bower install --save jcdl
-```
-
 ## Getting started
 ```javascript
 // Array of objects
