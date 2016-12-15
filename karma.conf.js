@@ -20,7 +20,7 @@ module.exports = function(config) {
       'node_modules/flatten2/dist/flatten2.js',
       'src/vendor/**/*.js',
       'src/*.js',
-      'tests/**/*.js'
+      'test/**/*.js'
     ],
 
 
