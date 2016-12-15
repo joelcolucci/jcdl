@@ -50,7 +50,9 @@ gulp.task('run:test:dist', (done) => {
     configFile: path.join(__dirname, paths.karma),
     singleRun: true,
     files: [
-      'node_modules/jquery/dist/jquery.js',
+      'node_modules/jquery/dist/jquery.min.js',
+      'node_modules/jquery-csv/src/jquery.csv.min.js',
+      'node_modules/flatten2/dist/flatten2.js',
       path.join(pkg.dist, '*.min.js'),
       path.join(pkg.test, 'spec/**/*.js')
     ],
