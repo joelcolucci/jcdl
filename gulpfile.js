@@ -1,39 +1,72 @@
-var gulp = require('gulp');
-var path = require('path');
-var concat = require('gulp-concat');
+'use strict';
 
-var Server = require('karma').Server;
+const path = require('path');
 
+const gulp = require('gulp');
+const $ = require('gulp-load-plugins')();
 
-/**
- * Run test once and exit
- */
+const del = require('del');
+const KarmaServer = require('karma').Server;
 
-gulp.task('test:run', function (done) {
-  new Server({
-    configFile: path.join(__dirname, '/karma.conf.js'),
+const pkg = {
+  src: 'src',
+  dist: 'dist',
+  test: 'test'
+};
+
+const paths = {
+  js: [pkg.src + '/**/*.js'],
+  test: [pkg.test + '/spec/**/*.js'],
+  testRequire: [
+    pkg.test + '/mock/**/*.js',
+    pkg.test + '/spec/**/*.js'
+  ],
+  karma: 'karma.conf.js'
+};
+
+gulp.task('clean:dist', () => {
+  return del([
+    'dist'
+  ]);
+});
+
+gulp.task('run:lint', () => {
+  return gulp.src(paths.js)
+    .pipe($.excludeGitignore())
+    .pipe($.eslint())
+    .pipe($.eslint.format())
+    .pipe($.eslint.failAfterError());
+});
+
+gulp.task('run:test', (done) => {
+  new KarmaServer({
+    configFile: path.join(__dirname, paths.karma),
     singleRun: true
   }, done).start();
 });
 
-
-/**
- * Watch for file changes and re-run tests on each change
- */
-
-gulp.task('test:watch', function (done) {
-  new Server({
-    configFile: path.join(__dirname, '/karma.conf.js')
+gulp.task('run:test:dist', (done) => {
+  new KarmaServer({
+    configFile: path.join(__dirname, paths.karma),
+    singleRun: true,
+    files: [
+      'node_modules/jquery/dist/jquery.js',
+      path.join(pkg.dist, '*.min.js'),
+      path.join(pkg.test, 'spec/**/*.js')
+    ],
   }, done).start();
 });
 
-
-/**
- * Create dist
- */
-gulp.task('dist:build', function() {
-
-  return gulp.src(['./src/jcdl.js'])
-    .pipe(gulp.dest('./dist'));
-
+gulp.task('run:build', ['clean:dist'], () => {
+  return gulp.src(paths.js)
+    .pipe($.babel({
+      presets: ['es2015']
+    }))
+    .pipe($.minify({
+      ext: {
+        src: '.debug.js',
+        min: '.min.js'
+      }
+    }))
+    .pipe(gulp.dest(pkg.dist));
 });
