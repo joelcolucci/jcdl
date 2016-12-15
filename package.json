@@ -2,7 +2,7 @@
   "name": "jcdl",
   "version": "0.3.0",
   "description": "Client-side JSON to CSV file downloads made easy.",
-  "main": "./dist/jcdl.js",
+  "main": "./dist/jcdl.min.js",
   "keywords": [
     "JSON",
     "CSV",
